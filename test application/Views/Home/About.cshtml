@@ -1,0 +1,45 @@
+﻿
+
+@using test_application.Models
+@model IEnumerable<StaffModels>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="postedFile" />
+        <input type="submit" value="Import" />
+    }
+
+    @if ( Model.Count() > 0)
+    {
+        <hr />
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Type</th>
+                <th>Hour</th>
+            </tr>
+            @foreach (StaffModels staff in Model)
+            {
+                <tr>
+                    <td>@staff.Firstname</td>
+                    <td>@staff.Lastname</td>
+                    <td>@staff.Type</td>
+                    <td>@staff.Hour</td>
+                </tr>
+            }
+        </table>
+    }
+</body>
+</html>
