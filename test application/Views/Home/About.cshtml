@@ -3,10 +3,6 @@
 @using test_application.Models
 @model IEnumerable<StaffModels>
 
-@{
-    Layout = null;
-}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +10,7 @@
     <title>Index</title>
 </head>
 <body>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("About", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="file" name="postedFile" />
         <input type="submit" value="Import" />
@@ -40,6 +36,10 @@
                 </tr>
             }
         </table>
+    }
+    else
+    {
+        @:The list is empty.
     }
 </body>
 </html>
